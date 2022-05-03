@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Video Player plyr.js</title>
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+	<script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+</head>
+<body>
+	<h1>
+		環安衛暨WB在職訓練<br>
+		EHS-WB Training
+	</h1>
+
+
+	<div class="container">
+    <video id="player" playsinline clickToPlay controls>
+        <source src="https://nxp1.sharepoint.com/sites/EHSWorkingItemProgress/Shared%20Documents/Online%20Training%20for%20Employee/PQC/PQC.mp4" type="video/mp4" />
+        <track kind="captions" label="Chinese captions" src="WB.zh.vtt" srclang="zh" default />
+        <track kind="captions" label="English (Auto-translate) captions" src="WB.en.vtt" srclang="en" default />
+	</video>
+</div>
+<!-- Plyr resources and browser polyfills are specified in the pen settings -->
+
+<style type="text/css">
+	.container {
+	margin: 50px auto;
+	max-width: 500px;
+}
+</style>
+
+<script type="text/javascript">
+	const player = new Plyr('#player', 
+        {
+            controls:[
+                    'play-large', // The large play button in the center
+                    'restart', // Restart playback
+                    'rewind', // Rewind by the seek time (default 10 seconds)
+                    'play', // Play/pause playback
+                    //'fast-forward', // Fast forward by the seek time (default 10 seconds)
+                    //'progress', // The progress bar and scrubber for playback and buffering
+                    'current-time', // The current time of playback
+                    'duration', // The full duration of the media
+                    'mute', // Toggle mute
+                    'volume', // Volume control
+                    'captions', // Toggle captions
+                    'settings', // Settings menu
+                    //'pip', // Picture-in-picture (currently Safari only)
+                    //'airplay', // Airplay (currently Safari only)
+                    //'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+                    'fullscreen', // Toggle fullscreen
+            ],
+            settings:['captions']
+
+
+      
+        }
+    );
+
+// Expose player so it can be used from the console
+window.player = player;
+</script>
+
+</body>
+</html>
