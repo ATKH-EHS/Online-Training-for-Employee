@@ -1,4 +1,4 @@
-# Online-Training-for-Employee
+# NXP-ATKH Online-Training-for-Employee
 This repo is use for hosting the online training for employees video courses in NXP ATKH.
 
 The videos are implemented using html code with the help from [Plyr APIs](https://github.com/sampotts/plyr)
