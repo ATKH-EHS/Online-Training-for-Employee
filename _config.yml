@@ -1,8 +1,2 @@
 theme: jekyll-theme-cayman
-defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-    values:
-      layout: "default"
 title: NXP-ATKH Online-Training-for-Employee
