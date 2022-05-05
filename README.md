@@ -1,6 +1,3 @@
----
-layout: home
----
 # NXP-ATKH Online-Training-for-Employee
 This repo is use for hosting the online training for employees video courses in NXP ATKH.
 
