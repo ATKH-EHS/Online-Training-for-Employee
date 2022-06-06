@@ -26,6 +26,7 @@ title: EHS-Environment Training
     </div>
 
     <div id="quiz">
+        測驗連結將會在影片撥放完畢出現於下方<br>
         link for the quiz will be showed below after the video ended! Please watch the entire video!
         <!--link will be added here-->
     </div>
@@ -66,10 +67,12 @@ title: EHS-Environment Training
         }
     );
 
-player.on('ended', (event) => {
-    const quiz = document.getElementById('quiz');
+
+const quizHTML = "<a href='https://forms.office.com/r/F6bGZBdfGw'>環安衛暨環境在職訓練測驗 EHS-Environment Training Quiz</a>"
+player.once('ended', (event) => {
+    const quiz = document.getElementById('quiz')
     console.log("Video is finished!")
-    quiz.insertAdjacentText('beforeend', 'https://forms.office.com/r/w2E3fFfdgn')
+    quiz.insertAdjacentHTML('beforeend', quizHTML)
 });
 
 // Expose player so it can be used from the console
