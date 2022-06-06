@@ -23,7 +23,12 @@ title: EHS-Environment Training
         <track kind="captions" label="Chinese captions" src="Environment.zh.vtt" srclang="zh" default />
         <track kind="captions" label="English (Auto-translate) captions" src="Environment.en.vtt" srclang="en" default />
 	</video>
-</div>
+    </div>
+
+    <div class="quiz_link">
+        link for the quiz will be showed below after the video ended! Please watch the entire video!
+        <!--link will be added here-->
+    </div>
 <!-- Plyr resources and browser polyfills are specified in the pen settings -->
 
 <style type="text/css">
@@ -42,7 +47,7 @@ title: EHS-Environment Training
                     'rewind', // Rewind by the seek time (default 10 seconds)
                     'play', // Play/pause playback
                     //'fast-forward', // Fast forward by the seek time (default 10 seconds)
-                    //'progress', // The progress bar and scrubber for playback and buffering
+                    'progress', // The progress bar and scrubber for playback and buffering
                     'current-time', // The current time of playback
                     'duration', // The full duration of the media
                     'mute', // Toggle mute
@@ -63,6 +68,12 @@ title: EHS-Environment Training
 
 // Expose player so it can be used from the console
 window.player = player;
+
+player.on('ended', (event) => {
+    const quiz_link = document.getElementById('quiz_link');
+    quiz_link.insertAdjacentText('beforeend', 'https://forms.office.com/r/w2E3fFfdgn')
+});
+
 </script>
 
 </body>
