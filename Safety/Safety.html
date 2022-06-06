@@ -26,7 +26,14 @@ title: EHS-Fire Fighting & Safety Training
         <track kind="captions" label="English (Auto-translate) captions" src="Safety.en.vtt" srclang="en" default />
 
 	</video>
-</div>
+    </div>
+
+    <div id="quiz">
+        測驗連結將會在影片撥放完畢出現於下方<br>
+        link for the quiz will be showed below after the video ended! Please watch the entire video!<br>
+        <!--link will be added here-->
+    </div>
+
 <!-- Plyr resources and browser polyfills are specified in the pen settings -->
 
 <style type="text/css">
@@ -60,6 +67,14 @@ title: EHS-Fire Fighting & Safety Training
             settings:['captions']
         }
     );
+
+const quizHTML = "<a href='https://forms.office.com/r/GP9qXyyL9i' target='view_window'>環安衛暨消防與安全教育在職訓練 EHS-Fire Fighting & Safety Training</a>"
+player.once('ended', (event) => {
+    const quiz = document.getElementById('quiz')
+    console.log("Video is finished!")
+    quiz.insertAdjacentHTML('beforeend', quizHTML)
+});
+
 
 // Expose player so it can be used from the console
 window.player = player;

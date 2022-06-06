@@ -26,6 +26,12 @@ title: Occupational Hazard Protection and Reconstruction
         </video>
     </div>
 
+    <div id="quiz">
+        測驗連結將會在影片撥放完畢出現於下方<br>
+        link for the quiz will be showed below after the video ended! Please watch the entire video!<br>
+        <!--link will be added here-->
+    </div>
+
 <!-- Plyr resources and browser polyfills are specified in the pen settings -->
 
 <style type="text/css">
@@ -61,6 +67,13 @@ title: Occupational Hazard Protection and Reconstruction
       
         }
     );
+
+const quizHTML = "<a href='https://forms.office.com/r/NZUGRNj4X2' target='view_window'>職業災害保護與重建 Occupational Hazard Protection and Reconstruction</a>"
+player.once('ended', (event) => {
+    const quiz = document.getElementById('quiz')
+    console.log("Video is finished!")
+    quiz.insertAdjacentHTML('beforeend', quizHTML)
+});
 
 // Expose player so it can be used from the console
 window.player = player;
