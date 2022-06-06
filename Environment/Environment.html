@@ -66,13 +66,16 @@ title: EHS-Environment Training
         }
     );
 
+player.on('ended', (event) => {
+    const quiz_link = document.getElementById('quiz_link');
+    console.log("Video is finished!")
+    quiz_link.insertAdjacentText('beforeend', 'https://forms.office.com/r/w2E3fFfdgn')
+});
+
 // Expose player so it can be used from the console
 window.player = player;
 
-player.on('ended', (event) => {
-    const quiz_link = document.getElementById('quiz_link');
-    quiz_link.insertAdjacentText('beforeend', 'https://forms.office.com/r/w2E3fFfdgn')
-});
+
 
 </script>
 
