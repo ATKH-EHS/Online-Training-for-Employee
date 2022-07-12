@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EHS-Environment Training</title>
+	<link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+	<script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+    <script>
+        var title_CN="環安衛暨環境在職訓練";
+        var title_EN="EHS-Environment Training";
+        var video_link="https://nxp1.sharepoint.com/sites/EHSWorkingItemProgress/Shared%20Documents/Online%20Training%20for%20Employee/Environment/Environment.mp4";
+        var quiz_link="https://forms.office.com/r/F6bGZBdfGw";
+    </script>
+</head>
+<body>
+	<h1 id="header">
+        <!--Title_CN and Title_EN will be inserted here-->
+	</h1>
+
+    <div>
+        請點以下連結，登入公司email後並重整此網頁以確保可以正常觀看課程影片<br>
+        Please click the link below, login using NXP email and refresh this page, to ensure the video courses can be played normally<br>
+        <a href="https://nxp1.sharepoint.com/:f:/s/EHSWorkingItemProgress/EqvVFN-ZOBNMmMWbeGFOmSkBJN6kYpMRwu0N2kPWC8Ab4g?e=tgj220", target='view_window'>Online Training for Employee</a>
+    </div>
+
+
+	<div class="container">
+    <video id="player" playsinline clickToPlay controls>
+        <source id="video_link" src="" type="video/mp4" />
+        <track kind="captions" label="Chinese captions" src="Environment.zh.vtt" srclang="zh" default />
+        <track kind="captions" label="English (Auto-translate) captions" src="Environment.en.vtt" srclang="en" default />
+	</video>
+    </div>
+
+    <div id="quiz">
+        測驗連結將會在影片撥放完畢出現於下方<br>
+        link for the quiz will be showed below after the video ended! Please watch the entire video!<br>
+        <!--link will be added here-->
+    </div>
+<!-- Plyr resources and browser polyfills are specified in the pen settings -->
+
+<style type="text/css">
+	.container {
+	margin: 50px auto;
+	max-width: 500px;
+}
+</style>
+
+<script type="text/javascript">
+	const player = new Plyr('#player', 
+        {
+            controls:[
+                    'play-large', // The large play button in the center
+                    'restart', // Restart playback
+                    'rewind', // Rewind by the seek time (default 10 seconds)
+                    'play', // Play/pause playback
+                    //'fast-forward', // Fast forward by the seek time (default 10 seconds)
+                    //'progress', // The progress bar and scrubber for playback and buffering
+                    'current-time', // The current time of playback
+                    'duration', // The full duration of the media
+                    'mute', // Toggle mute
+                    'volume', // Volume control
+                    'captions', // Toggle captions
+                    'settings', // Settings menu
+                    //'pip', // Picture-in-picture (currently Safari only)
+                    //'airplay', // Airplay (currently Safari only)
+                    //'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+                    'fullscreen', // Toggle fullscreen
+            ],
+            settings:['captions']
+
+
+      
+        }
+    );
+
+
+document.getElementById("header").insertAdjacentHTML('beforeend', title_CN+"<br>"+title_EN);
+document.getElementById("video_link").setAttribute("src", video_link);
+
+const quizHTML = "<a href="+quiz_link+" target='view_window'>"+title_CN+"測驗"+title_EN+" quiz"+"</a>"
+player.once('ended', (event) => {
+    const quiz = document.getElementById('quiz')
+    console.log("Video is finished!")
+    quiz.insertAdjacentHTML('beforeend', quizHTML)
+});
+
+// Expose player so it can be used from the console
+window.player = player;
+
+
+
+</script>
+
+</body>
+</html>
