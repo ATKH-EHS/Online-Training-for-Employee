@@ -1,5 +1,6 @@
 ---
 layout: default
+title: EHS-Environment Training
 ---
 
 <!DOCTYPE html>
@@ -11,8 +12,11 @@ layout: default
     <script>
         var title_CN="環安衛暨環境在職訓練";
         var title_EN="EHS-Environment Training";
+        //get the direct download link by clicking "People with existing access", copy the link, remove the text after ? and hit enter, it will generate a download link for the video.
         var video_link="https://nxp1.sharepoint.com/sites/EHSWorkingItemProgress/Shared%20Documents/Online%20Training%20for%20Employee/Environment/Environment.mp4";
         var quiz_link="https://forms.office.com/r/F6bGZBdfGw";
+        var sub_CN="Environment.zh.vtt";
+        var sub_EN="Environment.en.vtt";
     </script>
 </head>
 <body>
@@ -30,8 +34,8 @@ layout: default
 	<div class="container">
     <video id="player" playsinline clickToPlay controls>
         <source id="video_link" src="" type="video/mp4" />
-        <track kind="captions" label="Chinese captions" src="Environment.zh.vtt" srclang="zh" default />
-        <track kind="captions" label="English (Auto-translate) captions" src="Environment.en.vtt" srclang="en" default />
+        <track id="sub_CN" kind="captions" label="Chinese captions" src="" srclang="zh" default />
+        <track id="sub_EN" kind="captions" label="English (Auto-translate) captions" src="" srclang="en" default />
 	</video>
     </div>
 
@@ -80,6 +84,8 @@ layout: default
 
 document.getElementById("header").insertAdjacentHTML('beforeend', title_CN+"<br>"+title_EN);
 document.getElementById("video_link").setAttribute("src", video_link);
+document.getElementById("sub_CN").setAttribute("src", sub_CN);
+document.getElementById("sub_EN").setAttribute("src", sub_EN);
 
 const quizHTML = "<a href="+quiz_link+" target='view_window'>"+title_CN+"測驗"+title_EN+" quiz"+"</a>"
 player.once('ended', (event) => {
